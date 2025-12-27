@@ -32,7 +32,7 @@ const LoadingSpinner = () => (
 export default function EventPage() {
   const { id } = useParams();
   const navigate = useNavigate();
-
+  const BASE_PATH = 'https://event-platform-server-ryn6.onrender.com/';
   const [event, setEvent] = useState(null);
   const [formData, setFormData] = useState({});
   const [loading, setLoading] = useState(true);
@@ -54,7 +54,7 @@ export default function EventPage() {
     const fetchEvent = async () => {
       try {
         const res = await axios.get(
-          `${import.meta.env.VITE_API_BASE_URL}/public/event/${id}`
+          `${BASE_PATH}/public/event/${id}`
         );
         setEvent(res.data);
       } catch (err) {
@@ -94,7 +94,7 @@ export default function EventPage() {
     setSubmitting(true);
     try {
       await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/public/event/${id}/submit`,
+        `${BASE_PATH}/public/event/${id}/submit`,
         formData
       );
       navigate("/success");
