@@ -32,7 +32,7 @@ const LoadingSpinner = () => (
 export default function EventPage() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const BASE_PATH = 'https://event-platform-server-ryn6.onrender.com/';
+  const BASE_PATH = 'https://event-platform-server-ryn6.onrender.com';
   const [event, setEvent] = useState(null);
   const [formData, setFormData] = useState({});
   const [loading, setLoading] = useState(true);
