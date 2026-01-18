@@ -1,19 +1,25 @@
 import { useEffect, useState, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import QventLogo from "../assets/Qvent.png";
 
-const Header = () => (
-  <header className="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-20">
-    <div className="max-w-7xl mx-auto px-6 py-4">
-      <div className="flex items-center gap-2">
-        <div className="w-8 h-8 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-lg flex items-center justify-center">
-          <span className="text-white font-bold text-lg">Q</span>
-        </div>
-        <h1 className="text-xl font-bold text-gray-900">Qvent</h1>
+const Header = () => {
+  const navigate = useNavigate();
+  
+  return (
+    <header className="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-20">
+      <div className="max-w-7xl mx-auto px-6 py-4">
+        <button
+          onClick={() => navigate("/")}
+          className="flex items-center gap-2 hover:opacity-80 transition-opacity duration-200"
+        >
+          <img src={QventLogo} alt="Qvent Logo" className="w-8 h-8 object-contain" />
+          <h1 className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Qvent</h1>
+        </button>
       </div>
-    </div>
-  </header>
-);
+    </header>
+  );
+};
 
 const CheckmarkIcon = () => (
   <svg className="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
